@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "./lib/exercise_scraper.rb"
+
+CLI.new.run

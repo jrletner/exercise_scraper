@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative "exercise_scraper/version"
+require_relative "cli.rb"
+require_relative "api.rb"
 
 module ExerciseScraper
   class Error < StandardError; end

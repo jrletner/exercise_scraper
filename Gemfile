@@ -8,3 +8,4 @@ gemspec
 gem "rake", "~> 13.0"
 gem "nokogiri"
 gem "open-uri"
+gem "pry"
