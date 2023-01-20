@@ -2,13 +2,17 @@ class CLI
   def run
     system("clear")
     greeting
-    while menu != "exit"
-    end
+    menu until menu == "exit"
     goodbye
   end
 
   def greeting
     puts "Welcome to my web scraper!"
+  end
+
+  def goodbye
+    system("clear")
+    puts "Goodbye!"
   end
 
   def menu
@@ -17,12 +21,12 @@ class CLI
     puts "2. Travel"
     puts "3. Mystery"
     puts "4. Historical Fiction"
+    puts "5. Exit"
     user_input = gets.chomp
+    if user_input == "5"
+      user_input = "exit"
+      return user_input
+    end
     API.get_book(user_input)
-  end
-
-  def goodbye
-    system("clear")
-    puts "The program is now exiting. Thank you!"
   end
 end

@@ -1,4 +1,16 @@
 {
   "solargraph.formatting": true,
-  "solargraph.useBundler": true
+  "solargraph.useBundler": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "ruby"
+  ]
 }
