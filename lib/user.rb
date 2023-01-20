@@ -29,5 +29,3 @@ class User
     self.all.find { |user| user.id == id }
   end
 end
-
-#binding.pry

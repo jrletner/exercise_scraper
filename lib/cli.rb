@@ -1,11 +1,29 @@
+require "pry"
+
 class CLI
+  attr_accessor :user
+
   def run
     User.seed
     system("clear")
     greeting
-    login
+    login_or_signup
+    binding.pry
     menu until menu == "exit"
     goodbye
+  end
+
+  def login_or_signup
+    response = ""
+    while response != "login" && response != "signup"
+      puts "Do you want to login or signup?"
+      response = gets.chomp
+    end
+    if response == "login"
+      login
+    else
+      signup
+    end
   end
 
   def login
@@ -17,13 +35,24 @@ class CLI
       username = gets.chomp
       puts "Please enter your password."
       password = gets.chomp
-      if Auth.authenticate_user(User.all, username, password)
+      currUser = Auth.authenticate_user(User.all, username, password)
+      if currUser
         puts "Login Successful."
         is_authenticated = true
+        @user = currUser
       else
         puts "Invalid login attempt."
       end
     end
+  end
+
+  def signup
+    puts "Enter a username."
+    username = gets.chomp
+    puts "Enter a password."
+    password = gets.chomp
+    User.new(username, Auth.create_hash(password))
+    login
   end
 
   def greeting
