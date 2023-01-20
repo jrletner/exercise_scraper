@@ -1,6 +1,8 @@
 require "pry"
+require_relative "auth.rb"
 
 class User
+  extend Auth
   @@User = []
 
   attr_accessor :username, :password, :id
@@ -19,7 +21,7 @@ class User
 
   # create a test user
   def self.seed
-    User.new("Joe", "123")
+    User.new("Joe", create_hash("123"))
   end
 
   # find a user
@@ -28,4 +30,4 @@ class User
   end
 end
 
-binding.pry
+#binding.pry
